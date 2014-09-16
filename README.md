@@ -11,8 +11,8 @@
 - you can see the refreshed time (suppose it's 11:08:02 here)
 - tap link to /c
 - now doing browser-back, you can see "11:00:00" in your HTML
- - even if you do location.reload() via JavaScript in /a context in your Mobile Safrai, you cannot make Page Cache refresh.
- - you can make Page Cache refreshed only by reloading at outside of the iframe
+ - even if you do location.reload() via JavaScript in /a context in your Mobile Safrai, you cannot make page-cache refresh.
+ - you can make page-cache refreshed only by reloading at outside of the iframe
   - you cannot make it refresh even if you set /b to src attribute of the iframe element (by neither accessing nor reloading)
 
 ## Workaround
@@ -23,10 +23,13 @@ Adding hash or query parameter inside the iframe to change URL of the contents.
 - note that the page cache has never been refreshed inside iframe
  - page cache will be discarded after a while, or at the time when the browser process is killed
 
+Adding no-store in Cache-Control field of HTTP Response Headers.
+
+- no-store prevents browsers produce page-cache
 
 ## Assumption
 
-Mobile Safari seems not to produce/refresh its Page Cache inside an iframe.
+Mobile Safari seems not to produce/refresh its page-cache inside an iframe.
 
 Therefore, when you do browser-back inside the iframe,
 Mobile Safari shows an old page cache which was produced when you accessed the page outside of the iframe.
