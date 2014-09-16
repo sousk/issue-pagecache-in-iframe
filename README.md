@@ -1,4 +1,4 @@
-# examine iOS Page Cache behavior in iframe
+# Page Cache behavior of Mobile Safari in an iframe
 
 - access /a with Mobile Safari
 - tap link to move forward to /b
@@ -12,5 +12,25 @@
 - tap link to /c
 - now doing browser-back, you can see "11:00:00" in your HTML
  - even if you do location.reload() via JavaScript in /a context in your Mobile Safrai, you cannot make Page Cache refresh.
- - you can make Page Cache refreshed by reloading at outside of the iframe
+ - you can make Page Cache refreshed only by reloading at outside of the iframe
   - you cannot make it refresh even if you set /b to src attribute of the iframe element (by neither accessing nor reloading)
+
+## Workaround
+
+Adding hash or query parameter inside the iframe to change URL of the contents.
+
+- Mobile Safari gets the fresh page cache when the first browser-back is given
+- note that the page cache has never been refreshed inside iframe
+ - page cache will be discarded after a while, or at the time when the browser process is killed
+
+
+## Assumption
+
+Mobile Safari seems not to produce/refresh its Page Cache inside an iframe.
+
+Therefore, when you do browser-back inside the iframe,
+Mobile Safari shows an old page cache which was produced when you accessed the page outside of the iframe.
+
+If Mobile Safari doesn't have the page cache associated with the URL you've browser-backed,
+the page has been loaded at that time and the page cache has been made at once.
+But it has never been refreshed when you load the page again as long as you're inside the iframe.

@@ -13,6 +13,7 @@ get '/a' do
 end
 
 get '/b' do
+  response.headers['Cache-Control'] = 'no-store';
   erb :b, :locals => {:t => Time.now.strftime("%H:%M:%S") }
 end
 
