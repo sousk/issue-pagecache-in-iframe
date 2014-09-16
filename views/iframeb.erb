@@ -27,7 +27,7 @@
 					if (! a.getAttribute('target')) {
 						a.setAttribute(
 							'href',
-							a.getAttribute('href') +'?k=v'
+							a.getAttribute('href') +'?k='+ Date.now()
 						);
 						console.log("href:", a.getAttribute('href'));
 					}
