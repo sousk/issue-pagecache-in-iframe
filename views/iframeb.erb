@@ -18,9 +18,9 @@
 		<script charset="utf-8">
 			var iframe = document.querySelector('iframe');
 			iframe.addEventListener('load', function () {
-				iframe.contentWindow.addEventListener('pagehide', function () {
-					console.log('pagehide');
-				}, false);
+				// iframe.contentWindow.addEventListener('pagehide', function () {
+				// 	console.log('pagehide');
+				// }, false);
 
 				var anchors = iframe.contentDocument.querySelectorAll('a');
 				Array.prototype.forEach.call(anchors, function (a) {
@@ -37,9 +37,9 @@
 			// iframe.contentWindow.addEventListener('pagehide', function () {
 			// 	console.log('pagehide');
 			// }, false);
-			iframe.contentWindow.addEventListener('pageshow', function () {
-				console.log('pageshow');
-			}, false);
+			// iframe.contentWindow.addEventListener('pageshow', function () {
+			// 	console.log('pageshow');
+			// }, false);
 
 		</script>
 	</body>
