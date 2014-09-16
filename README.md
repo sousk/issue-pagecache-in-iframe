@@ -26,6 +26,8 @@ Adding hash or query parameter inside the iframe to change URL of the contents.
 Adding no-store in Cache-Control field of HTTP Response Headers.
 
 - no-store prevents browsers produce page-cache
+- you can give no-store field to the page which you want to keep refresh especially.
+
 
 ## Assumption
 
