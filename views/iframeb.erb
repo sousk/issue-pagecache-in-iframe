@@ -11,8 +11,32 @@
 	</head>
 	<body>
 		<div id="name">
-			in the iframe
+			in the iframe-B
 		</div>
-		<iframe src="/b"></iframe>
+		<iframe src="/a"></iframe>
+
+		<script charset="utf-8">
+			var iframe = document.querySelector('iframe');
+			iframe.addEventListener('load', function () {
+				var anchors = iframe.contentDocument.querySelectorAll('a');
+				Array.prototype.forEach.call(anchors, function (a) {
+					if (! a.getAttribute('target')) {
+						a.setAttribute(
+							'href',
+							a.getAttribute('href') +'#'+ Date.now()
+						);
+						console.log("href:", a.getAttribute('href'));
+					}
+				});
+			}, false);
+
+			iframe.contentWindow.addEventListener('pagehide', function () {
+				console.log('pagehide');
+			}, false);
+			iframe.contentWindow.addEventListener('pageshow', function () {
+				console.log('pageshow');
+			}, false);
+
+		</script>
 	</body>
 </html>

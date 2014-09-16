@@ -13,3 +13,4 @@
 - now doing browser-back, you can see "11:00:00" in your HTML
  - even if you do location.reload() via JavaScript in /a context in your Mobile Safrai, you cannot make Page Cache refresh.
  - you can make Page Cache refreshed by reloading at outside of the iframe
+  - you cannot make it refresh even if you set /b to src attribute of the iframe element (by neither accessing nor reloading)
