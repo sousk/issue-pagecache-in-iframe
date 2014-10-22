@@ -18,13 +18,36 @@
 	</head>
 	<body>
 		<div id="name">
-			A.html
+			page-A
 		</div>
 		<ul>
-			<li><a href="b">forward to B</a></li>
+			<li><a href="b">go to B</a></li>
 			<li><a href="iframe">enter iframe</a></li>
 			<li><a href="a" target="_parent">exit iframe</a></li>
 		</ul>
-
+		<h2>Summary</h2>
+		<p>
+			Through these steps described below, you can see that the page-cache of Mobile Safari in the IFRAME has been broken.<br>
+			Page-cache has not been refreshed in the IFRAME, aditionally it causes some problems.<br>
+			(e.g., safari's loading indicator stops on its halfway and hasn't been finished.)
+		</p>
+		<h2>Steps</h2>
+		<ol>
+			<li>First, make a page-cache of page-B by tapping the link above. (you can go back to this page through circulation link: page-B -> page-C -> page-A)</li>
+			<li>Tap 'enter iframe'</li>
+			<li>Tap 'go to B'</li>
+			<li>Remember the time displayed in page-B</li>
+			<li>Tap 'go to C'</li>
+			<li>Then, do browser-back to show the page-cache of page-B</li>
+			<li>
+					You'll get an old time number in the page-cache of page-B
+						<ul>
+							<li>If page-cache mechanism works correctly, you should get the latest time when you visit at the last time</li>
+							<li>Page-caches seems to be never refreshed in the IFRAME. That's the problem.</li>
+							<li>You can also see that the loading indicator of the browser stops on its halfway</li>
+							<li>Sometimes, Your browser's loading icon displayed left side of the Status Bar has been displayed and never disappear (it continues as long as the broken page cache remains in your browser)</li>
+						</ul>
+			</li>
+		</ol>
 	</body>
 </html>
